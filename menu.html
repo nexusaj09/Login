@@ -1,0 +1,134 @@
+<!DOCTYPE  html>
+<html lang = "en-US">
+<head>
+<link rel="stylesheet" type="text/css" href="des.css">
+<title> AMA Computer College System </title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#reg").click(function(){
+			     $("#reg-form").removeClass('hi');	
+				 	$("#login-form").hide();
+	           $("#reg-form").show();
+    });
+    $("#Log").click(function(){
+       		  $("#reg-form").hide();
+		$("#login-form").show();
+     
+
+    });
+});
+</script>
+
+<script type="text/javascript">
+function clearFields() {
+    document.getElementById("txtbox1").value= "";
+    document.getElementById("txtbox2").value= "";
+}
+function clearFields1() {
+    document.getElementById("username").value="";
+    document.getElementById("pas").value="";
+}
+function validateForm() {
+	
+    var x = document.getElementById("txtbox1").value;
+	 var y = document.getElementById("txtbox2").value;
+    if ((y == null || y == "") && (x == null || x == ""))
+		{
+		alert("Username and Password wasn't filled out");
+		return false;	
+			}
+   else if (x == null || x == "") {
+        alert("Username must be filled out");
+        return false;
+    }
+	else if (y == null || y == "")
+	{
+		 alert("Password must be filled out");
+        return false;
+		}
+	}
+		function validatereg() {
+    var x = document.getElementById("username").value;
+	 var y = document.getElementById("pas").value;
+    if ((y == null || y == "") && (x == null || x == ""))
+		{
+		alert("Username and Password wasn't filled out");
+		return false;	
+			}
+   else if (x == null || x == "") {
+        alert("Username must be filled out");
+        return false;
+    }
+	else if (y == null || y == "")
+	{
+		 alert("Password must be filled out");
+        return false;
+		}			
+	}
+
+
+</script>
+<script>
+var app = angular.model('register',[]);
+app.controller('my',function($scope))
+{
+	$scope.username="";
+	$scope.passw="";
+}	
+
+</script>
+<center>
+<div id="login-form">
+<h1 align="center"> AMA Login System
+</h1>
+<table>
+<tr>
+<td><input type = "text" id ="txtbox1" placeholder="Username" />
+</td>
+</tr>
+<tr>
+<td><input type = "password" id ="txtbox2" placeholder="Password" />
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type = "button" onclick = "validateForm()" value = "Submit"/>
+<input type = "button" onclick = "clearFields();" value = "Reset"/>
+</center>
+</td>
+</tr>
+</table>
+<a href="#" id = "reg" onclick="clearField();"> No Account Register a User </a>
+</div>
+<div id = "reg-form" class="hi">
+<h1 align="center"> REGISTER A USER </h1>
+<table>
+<tr>
+<td><input type = "text" id ="username" placeholder="Enter Username" ng-model="user"/>
+</td>
+</tr>
+<tr>
+<td><input type = "password" id ="pas" placeholder="Enter Password" ng-model="passw"/>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<input type = "button" onclick = "validatereg()" value = "Submit"/>
+<input type = "button" onclick = "clearFields1();" value = "Reset"/>
+</center>
+</td>
+</tr>
+</table>
+<a href="#" id = "Log" onclick="clearFields1();"> Do You Have an Account ? Login </a>
+
+</div>
+</center>
+</body>
+
+</html>
